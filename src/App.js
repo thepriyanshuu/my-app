@@ -47,12 +47,13 @@ function App() {
       {/* Alert */}
       <Alert alert={alert}/>
 
-        {/* Switch */} 
+        {/* Switch  */}
       <div className="container">
         <Switch>
 
-            <Route path="/"  exact>{<TextForm heading="Enter the text analyze" mode={mode} toggleMode={toggleMode} showAlert={showAlert}/>} </Route> 
-            <Route path="/about" exact><About/></Route>
+            <Route path="/home"  exact>
+              <TextForm heading="Enter the text analyze" mode={mode} toggleMode={toggleMode} showAlert={showAlert}/> </Route> 
+            <Route path="/about" exact><About mode={mode}/></Route>
 
         </Switch>
 

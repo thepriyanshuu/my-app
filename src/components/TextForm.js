@@ -32,26 +32,26 @@ export default function TextForm(props) {
             id="myBox"
             rows="8"
             style={{
-              backgroundColor: props.mode==='light'?'white':'grey',color: props.mode==="dark"?"white":"black"}}>
+              backgroundColor: props.mode==='light'?'white':'rgb(36,74,104)', color: 'white'}}>
           </textarea>
         </div>
-        <button onClick={handleUpClick} className="btn btn-primary">
+        <button disabled={text.length===0} onClick={handleUpClick} className="btn btn-primary">
           Convert to UPPERCASE
         </button>
         <br />
-        <button onClick={handleLowClick} className="btn btn-primary my-3">
+        <button disabled={text.length===0} onClick={handleLowClick} className="btn btn-primary my-3">
           Convert to lowercase
         </button>
         <br />
-        <button onClick={handleClearClick} className="btn btn-primary">
+        <button disabled={text.length===0} onClick={handleClearClick} className="btn btn-primary">
           Clear text
         </button>
         <div className= 'container text-' >
           <h1>Your text summary</h1>
           <p>
-            {text.split(" ").length} words, {text.length} characters
+            {text.split(/\s+/).filter((e)=>{return e.length!==0}).length} words, {text.length} characters
           </p>
-          <p>{0.015 * text.split(" ").length} Minutes to read completely</p>
+          <p>{0.015 * text.split(" ").filter((e)=>{return e.length!==0}).length} Minutes to read completely</p>
           <h4>Preview</h4>
           <p>{text.length>0?text:"Enter something in the textbox to preview"}</p>
         </div>
